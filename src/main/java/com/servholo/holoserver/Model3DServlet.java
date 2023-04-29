@@ -11,9 +11,9 @@ public class Model3DServlet extends HttpServlet {
 
     protected void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("\n\nFINESSSSSSS\n\n\n\n\n"); // Questo lo stampa
-
-        File model3d = new File("ModelsOBJ/cerabarM_PMC51.obj"); // --> file System del Server (path relativo) *****Impossibile trovare il percorso specificato
+        //C:\\Users\\Joe\\Documents\\workspace\\ArtificialLifeFX\\res\\latest.txt esempio di path assoluto C:\Users\shoyll qui sta il file assoluto
+        //il path relativo è --> File model3d = new File("ModelsOBJ/cerabarM_PMC51.obj"); //ma non lo trova perché è troppo grande il file
+        File model3d = new File("C:\\Users\\shoyll\\cerabarM_PMC51.obj"); // --> file System del Server
 
         response.setContentType("application/obj"); //la risposta è un file .obj (modello 3D richiesto dall'Hololens)
         response.setContentLength((int) model3d.length());
@@ -48,7 +48,7 @@ public class Model3DServlet extends HttpServlet {
         outStream.flush();// il metodo outputStream.flush() per assicurarsi che tutti i byte siano stati scritti nel flusso di output della risposta HTTP.
         outStream.close(); //chiudiamo il flusso di output della risposta.
 
-        System.out.println("\n\nFINESSSSSSS\n\n\n\n\n"); //Qui non ci arriva =(
+        System.out.println("\n\nFINESSSSSSS\n\n\n\n\n"); //debug =)
     }
 
 }
